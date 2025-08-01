@@ -1,0 +1,102 @@
+# Invoice Extraction System Configuration
+
+# Data Configuration
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  samples_dir: "data/samples"
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+  max_image_size: [1024, 1024]
+  supported_formats: ["jpg", "jpeg", "png", "tiff", "bmp"]
+
+# Model Configuration
+model:
+  architecture: "transformer"
+  backbone: "microsoft/layoutlm-base-uncased"
+  num_classes: 10
+  learning_rate: 2e-5
+  batch_size: 8
+  num_epochs: 10
+  max_length: 512
+  dropout: 0.1
+
+# OCR Configuration
+ocr:
+  engine: "paddleocr"  # Options: tesseract, paddleocr, easyocr
+  language: "en"
+  confidence_threshold: 0.7
+  enable_gpu: true
+
+# Field Extraction Configuration
+fields:
+  invoice_number:
+    patterns: ["INV-\\d+", "INVOICE\\s*#\\s*\\d+", "\\d{6,}"]
+    required: true
+    confidence_threshold: 0.8
+    
+  invoice_date:
+    patterns: ["\\d{1,2}[/-]\\d{1,2}[/-]\\d{2,4}", "\\d{4}-\\d{2}-\\d{2}"]
+    required: true
+    confidence_threshold: 0.8
+    
+  line_items:
+    patterns: ["ITEM", "DESCRIPTION", "QTY", "PRICE", "AMOUNT"]
+    required: true
+    confidence_threshold: 0.7
+    
+  total_amount:
+    patterns: ["TOTAL", "AMOUNT DUE", "GRAND TOTAL"]
+    required: true
+    confidence_threshold: 0.8
+
+# Training Configuration
+training:
+  device: "cuda"  # Options: cpu, cuda, mps
+  num_workers: 4
+  gradient_accumulation_steps: 2
+  warmup_steps: 100
+  weight_decay: 0.01
+  save_steps: 500
+  eval_steps: 500
+  logging_steps: 100
+
+# Data Sources Configuration
+data_sources:
+  kaggle:
+    datasets:
+      - "invoice-dataset"
+      - "document-understanding"
+    api_key_required: true
+    
+  huggingface:
+    datasets:
+      - "microsoft/layoutlm-document-understanding"
+      - "invoice-extraction"
+    token_required: true
+    
+  github:
+    repositories:
+      - "https://github.com/username/invoice-dataset"
+      - "https://github.com/username/document-understanding"
+
+# PDF Processing Configuration
+pdf_processing:
+  dpi: 300
+  format: "PNG"
+  thread_count: 4
+  output_dir: "data/raw/converted"
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/invoice_extraction.log"
+
+# Output Configuration
+output:
+  format: "json"  # Options: json, csv, xml
+  include_confidence: true
+  include_bbox: true
+  save_images: false 

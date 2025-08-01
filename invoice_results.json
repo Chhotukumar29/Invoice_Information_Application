@@ -1,0 +1,107 @@
+[
+  {
+    "filename": "mi_invoice.png",
+    "ocr_confidence": 0.95,
+    "ocr_text": "Invoice\nDATE: 01/01/1970\nINVOICE: NO. 001\nFROM: Company ABC\nuser@companyabc.com\nADDRESS: 111 Main Street\nAnytown, USA\nTO: John Doe\njohndoe@email.com\nADDRESS: 222 Main Street\nAnytown, USA\nTERMS: 6 month contract\nDUE: 01/01/2025.\nItem Description\nQuantity\nPrice\nAmount\nTool A\n500\n$1.00\n$500.00\nService B\n1\n$900.00\n$900.00\nResource C\n50\n$12.00\n$600.00\nSubtotal\n$2000.00\nTax\n$140.00\nBALANCE DUE\n$2140.00\nNOTES:",
+    "invoice_id": [
+      "001",
+      0.9
+    ],
+    "invoice_date": [
+      "01/01/1970",
+      0.9
+    ],
+    "total_amount": [
+      "2000.00",
+      0.9
+    ],
+    "supplier_name": [
+      "Company ABC\nuser",
+      0.9
+    ],
+    "customer_info": [
+      "John Doe\njohndoe",
+      0.9
+    ],
+    "email_addresses": [
+      [
+        "user@companyabc.com",
+        "johndoe@email.com"
+      ],
+      0.95
+    ],
+    "phone_numbers": [
+      [],
+      0.0
+    ],
+    "addresses": [
+      [
+        "111 Main Street",
+        "222 Main Street"
+      ],
+      0.7
+    ],
+    "transaction_id": [
+      null,
+      0.0
+    ],
+    "tax_info": [
+      "140.00",
+      0.9
+    ],
+    "line_items": [
+      [],
+      0.0
+    ],
+    "payment_terms": [
+      "6 month contract\nDUE",
+      0.9
+    ],
+    "due_date": [
+      "01/01/2025",
+      0.9
+    ],
+    "line_item_quantities": [
+      [
+        "500",
+        "1",
+        "50"
+      ],
+      0.8
+    ],
+    "line_item_unit_prices": [
+      [
+        "1.00",
+        "500.00",
+        "900.00",
+        "900.00",
+        "12.00",
+        "600.00",
+        "2000.00",
+        "140.00",
+        "2140.00",
+        "500",
+        "1",
+        "50"
+      ],
+      0.8
+    ],
+    "total_tax_amount": [
+      "140.00",
+      0.9
+    ],
+    "amount_due": [
+      "2140.00",
+      0.9
+    ],
+    "item_line": [
+      [
+        "\nItem Description\nQuantity\nPrice\nAmount\nTool A",
+        "\nService B",
+        "\nResource C"
+      ],
+      0.8
+    ],
+    "timestamp": "2025-08-01T18:42:07.178845"
+  }
+]
