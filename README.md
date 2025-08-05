@@ -30,11 +30,8 @@ pip install -r requirements.txt
 Create a `.env` file in the project root with your API keys:
 
 ```bash
-# Copy the example file
-cp .env.example .env
-
 # Edit the .env file with your actual API key
-GEMINI_API_KEY=your_actual_gemini_api_key_here
+GEMINI_API_KEY = your_gemini_api
 ```
 
 ### 3. Get Your Gemini API Key
@@ -49,7 +46,6 @@ streamlit run app.py
 
 ## Security Notes
 - Never commit your `.env` file to version control
-- The `.env.example` file is provided as a template
 - Your API key is automatically loaded from environment variables
 
 ## Usage
@@ -75,7 +71,7 @@ Master_India/
 ├── app.py                 # Main Streamlit application
 ├── requirements.txt       # Python dependencies
 ├── invoice_results.json   # Extracted results (auto-generated)
-└── README.md             # This file
+└── README.md              # This file store project information
 ```
 
 ## Requirements
@@ -89,6 +85,9 @@ Master_India/
 ## Quick Start
 
 ```bash
+# Clone the repositary
+git clone https://github.com/Chhotukumar29/Invoice_Information_Application.git
+
 # Install dependencies
 pip install -r requirements.txt
 
